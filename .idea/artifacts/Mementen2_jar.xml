@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Mementen2.jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Mementen2_jar</output-path>
+    <root id="archive" name="Mementen2.jar.jar" />
+  </artifact>
+</component>

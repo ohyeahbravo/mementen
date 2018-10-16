@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane style="-fx-background-color: black;" prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.PlayController">
+    <center>
+        <ImageView fx:id="imgView" pickOnBounds="true" preserveRatio="true">
+        </ImageView>
+    </center>
+</BorderPane>
