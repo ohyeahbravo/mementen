@@ -18,9 +18,9 @@ public class StartController {
 
         Task listenWeight = new Task<Void>() {
             @Override
-            public Void call() throws Exception {
+            public Void call() {
 
-                int initialCount = 0;
+                int count = 0;
                 double previous = 0;
                 int detected = 0;
                 weight = 0;
@@ -42,20 +42,21 @@ public class StartController {
                   /* Weight Correction
                      weight sensor often gets weird values.. */
 
-                    if(initialCount < 1) // first value is discarded
-                        initialCount++;
-                    else {
-                        if(weight - previous < -30) {
+                    if(count < 1) { // first value is discarded
+                        wApp.getConn().serialWrite('t');
+                        count++;
+                    } else {
+                        if(weight - previous < -20) {
                             wApp.getConn().serialWrite('t');
                         }
                         // similar values in a row that is over 40g are detected
-                        else if (weight > 30 && (weight - previous) < 5) {
+                        else if (weight > 20 && (weight - previous) < 5) {
                             detected++;
                         } else if (detected > 0) { // not consistent -> start over counting
                             detected = 0;
                         }
 
-                        if (detected == 1) {   // detected 2 times
+                        if (detected == 2) {   // detected 2 times
                             empty = false;
                         }
                         previous = weight;
@@ -65,7 +66,7 @@ public class StartController {
                 // run later in the main thread
                 Platform.runLater(() -> {
                     try {
-                        System.out.println(weight);
+                        //System.out.println(weight);
                         showPlayScreen(searchItem(weight));
                     } catch (Exception e) {
                         e.printStackTrace();

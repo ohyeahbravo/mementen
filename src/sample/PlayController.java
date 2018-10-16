@@ -27,25 +27,20 @@ public class PlayController {
     private boolean empty = false;
     private double weight = 0;
 
-    private Media audio;
     private MediaPlayer mediaPlayer;
     private int imgCount = 0;
-    private double mediaLength = 0;
     private double slideshowLength = 5000;  // millisec
-    private int slideshowCount = 0;
     private Task slideShow;
     private Thread slideThread;
     private boolean memoryPlaying = false;
 
     void playMemory() {
 
-        audio = new Media(new File("src/mem/mem" + item + ".mp3").toURI().toString());
+        Media audio = new Media(new File("src/mem/mem" + item + ".mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(audio);
         getImgs();
 
         mediaPlayer.setOnReady(() -> {
-            mediaLength = audio.getDuration().toMillis();
-            slideshowCount = (int) Math.round(mediaLength / slideshowLength);
             try {
                 memoryPlaying = true;
                 showImgs(imgs);
@@ -54,9 +49,7 @@ public class PlayController {
             }
         });
 
-        mediaPlayer.setOnEndOfMedia(() -> {
-            mediaPlayer.seek(Duration.ZERO);
-        }) ;
+        mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.seek(Duration.ZERO)) ;
 
         mediaPlayer.play();
     }
@@ -106,7 +99,7 @@ public class PlayController {
 
         Task listenWeight = new Task<Void>() {
             @Override
-            public Void call() throws Exception {
+            public Void call() {
 
                 int count = 0;
                 double previous = 0;
@@ -121,7 +114,7 @@ public class PlayController {
                     String input2 = parts[0];
                     try {
                         weight = Double.parseDouble(input2);
-                        System.out.println(weight);
+                        //System.out.println(weight);
                     } catch (NumberFormatException e) {
                         weight = 0;
                         continue;
@@ -130,14 +123,15 @@ public class PlayController {
                   /* Weight Correction
                      weight sensor often gets weird values.. */
 
-                    if(count < 1) // first value is discarded
+                    if(count < 1) { // first value is discarded
+                        wApp.getConn().serialWrite('t');
                         count++;
-                    else {
-                        if(weight - previous > 30) {
+                    } else {
+                        if(weight - previous > 20) {
                             sthPut = true;
                         }
                         // similar values in a row that is over 40g are detected
-                        else if (weight < -30 && Math.abs(weight - previous) < 5) {
+                        else if (weight < -20 && Math.abs(weight - previous) < 5) {
                             detected++;
                         } else if (detected > 0) { // not consistent -> start over counting
                             detected = 0;
@@ -146,7 +140,7 @@ public class PlayController {
                             sthPut = false;
                         }
 
-                        if (detected == 1) {   // detected 2 times
+                        if (detected == 2) {   // detected 2 times
                             empty = true;
                         }
                         previous = weight;
@@ -156,6 +150,7 @@ public class PlayController {
                 // run later in the main thread
                 Platform.runLater(() -> {
                     try {
+                        //System.out.println(weight);
                         memoryPlaying = false;
                         showStartScreen();
                     } catch (Exception e) {
