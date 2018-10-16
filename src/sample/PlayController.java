@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class PlayController {
     private int slideshowCount = 0;
     private Task slideShow;
     private Thread slideThread;
+    private boolean memoryPlaying = false;
 
     void playMemory() {
 
@@ -45,6 +47,7 @@ public class PlayController {
             mediaLength = audio.getDuration().toMillis();
             slideshowCount = (int) Math.round(mediaLength / slideshowLength);
             try {
+                memoryPlaying = true;
                 showImgs(imgs);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -52,11 +55,7 @@ public class PlayController {
         });
 
         mediaPlayer.setOnEndOfMedia(() -> {
-            try {
-                showExitScreen();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            mediaPlayer.seek(Duration.ZERO);
         }) ;
 
         mediaPlayer.play();
@@ -82,7 +81,7 @@ public class PlayController {
         slideShow = new Task<Void>() {
             @Override
             public Void call() throws Exception {
-                for (int i = 0; i < slideshowCount; i++) {
+                while (memoryPlaying) {
 
                     Platform.runLater(() -> {
                         Image img = imgs.get(imgCount++);
@@ -161,6 +160,7 @@ public class PlayController {
                 // run later in the main thread
                 Platform.runLater(() -> {
                     try {
+                        memoryPlaying = false;
                         showStartScreen();
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -173,27 +173,6 @@ public class PlayController {
         Thread th = new Thread(listenWeight);
         th.setDaemon(true);
         th.start();
-    }
-
-    private void showExitScreen() throws Exception {
-        /* these lines sometimes creates NullPointerException... why tho.
-        if(mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.dispose();
-        }
-        */
-        if(slideShow != null)
-            slideShow.cancel();
-        if(slideThread != null)
-            slideThread.interrupt();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("exitLayout.fxml"));
-        Parent root = fxmlLoader.load();
-        ExitController controller = fxmlLoader.getController();
-        controller.getWeight(port);
-        Thread.sleep(1500); // weight for the weight sensor to be zero
-        controller.setFullScreen(scene);
-        scene.setRoot(root);
     }
 
     private void showStartScreen() throws Exception {
