@@ -7,15 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mem/mem2.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/mem/mem2.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/input.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/output.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ExitController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/PlayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/PlayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/exitLayout.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/StartController.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,8 +70,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+            <state relative-caret-position="140">
+              <caret line="37" column="27" lean-forward="true" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,21 +89,21 @@
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file leaf-file-name="playLayout.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="playLayout.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/playLayout.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+            <state relative-caret-position="180">
+              <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file leaf-file-name="PlayController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlayController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/PlayController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="894">
-              <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+            <state relative-caret-position="42">
+              <caret line="133" column="32" lean-forward="true" selection-start-line="133" selection-start-column="32" selection-end-line="133" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#7878#7879#0" expanded="true" />
@@ -122,8 +116,8 @@
       <file leaf-file-name="StartController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/StartController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="104" column="28" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="28" />
+            <state relative-caret-position="169">
+              <caret line="47" column="53" lean-forward="true" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#625#3172#0" expanded="true" />
@@ -147,15 +141,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onend</find>
-      <find>showexitscreen</find>
-      <find>slideshow</find>
       <find>initial</find>
       <find>showExitScreen</find>
       <find>stage</find>
       <find>play</find>
       <find>playMe</find>
-      <find>sleep</find>
       <find>showplayscreen</find>
       <find>item</find>
       <find>startscreen</find>
@@ -165,7 +155,6 @@
       <find>System.out.println(&quot;ExitController&quot;);</find>
       <find>fullscreen</find>
       <find>print</find>
-      <find>println</find>
       <find>searchitem</find>
       <find>imgview</find>
       <find>getImgs()</find>
@@ -177,6 +166,11 @@
       <find>showstartscreen</find>
       <find>slideshowlength</find>
       <find>memoryPlaying</find>
+      <find>detected</find>
+      <find>println</find>
+      <find>port</find>
+      <find>sleep</find>
+      <find>count</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -194,10 +188,10 @@
         <option value="$PROJECT_DIR$/src/sample/TwoWaySerialComm.java" />
         <option value="$PROJECT_DIR$/src/sample/WeightSensorApp.java" />
         <option value="$PROJECT_DIR$/src/sample/startLayout.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/playLayout.fxml" />
         <option value="$PROJECT_DIR$/src/sample/exitLayout.fxml" />
         <option value="$PROJECT_DIR$/src/sample/ExitController.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/StartController.java" />
         <option value="$PROJECT_DIR$/src/sample/PlayController.java" />
       </list>
@@ -867,30 +861,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/javafx.graphics/javafx/concurrent/Task.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="690" column="25" selection-start-line="690" selection-start-column="25" selection-end-line="690" selection-end-column="25" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/startLayout.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/ExitController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -912,10 +888,18 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/playLayout.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/StartController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="104" column="28" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="28" />
+        <state relative-caret-position="169">
+          <caret line="47" column="53" lean-forward="true" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#625#3172#0" expanded="true" />
@@ -926,10 +910,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="37" column="27" lean-forward="true" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/startLayout.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/PlayController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="894">
-          <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+        <state relative-caret-position="42">
+          <caret line="133" column="32" lean-forward="true" selection-start-line="133" selection-start-column="32" selection-end-line="133" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#7878#7879#0" expanded="true" />
@@ -937,14 +939,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/playLayout.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">

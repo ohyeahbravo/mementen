@@ -22,7 +22,7 @@ public class PlayController {
     private ArrayList<Image> imgs = new ArrayList<>();
 
     private Scene scene;
-    private String port;
+    private WeightSensorApp wApp;
     private int item;
     private boolean empty = false;
     private double weight = 0;
@@ -101,18 +101,14 @@ public class PlayController {
         slideThread.start();
     }
 
-    void getWeight(String in_port) {
-        this.port = in_port;
-        //System.out.println("PlayController");
+    void getWeight(WeightSensorApp in_wApp) {
+        this.wApp = in_wApp;
+
         Task listenWeight = new Task<Void>() {
             @Override
             public Void call() throws Exception {
-                WeightSensorApp wApp = new WeightSensorApp(port, 9600);
-                wApp.getConn().openConnection();
-                // wait for connection to be done
-                Thread.sleep(1000);
 
-                int initialCount = 0;
+                int count = 0;
                 double previous = 0;
                 int detected = 0;
                 boolean sthPut = false;
@@ -134,8 +130,8 @@ public class PlayController {
                   /* Weight Correction
                      weight sensor often gets weird values.. */
 
-                    if(initialCount < 2) // first value is discarded
-                        initialCount++;
+                    if(count < 1) // first value is discarded
+                        count++;
                     else {
                         if(weight - previous > 30) {
                             sthPut = true;
@@ -150,13 +146,13 @@ public class PlayController {
                             sthPut = false;
                         }
 
-                        if (detected == 2) {   // detected 3 times
+                        if (detected == 1) {   // detected 2 times
                             empty = true;
                         }
                         previous = weight;
                     }
                 }
-                wApp.getConn().closeConnection();
+
                 // run later in the main thread
                 Platform.runLater(() -> {
                     try {
@@ -189,8 +185,7 @@ public class PlayController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("startLayout.fxml"));
         Parent root = fxmlLoader.load();
         StartController controller = fxmlLoader.getController();
-        controller.getWeight(port);
-        Thread.sleep(1500); // weight for the weight sensor to be zero
+        controller.getWeight(wApp);
         controller.setFullScreen(scene);
         scene.setRoot(root);
     }

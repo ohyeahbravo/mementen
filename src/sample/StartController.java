@@ -8,21 +8,17 @@ import javafx.scene.Scene;
 
 public class StartController {
 
-    private String port;
+    private WeightSensorApp wApp;
     private Scene scene;
     private boolean empty = true;
     private double weight = 0;
 
-    void getWeight(String in_port) {
-        this.port = in_port;
+    void getWeight(WeightSensorApp in_wApp) {
+        this.wApp = in_wApp;
 
         Task listenWeight = new Task<Void>() {
             @Override
             public Void call() throws Exception {
-                WeightSensorApp wApp = new WeightSensorApp(port, 9600);
-                wApp.getConn().openConnection();
-                // wait for connection to be done
-                Thread.sleep(1000);
 
                 int initialCount = 0;
                 double previous = 0;
@@ -46,7 +42,7 @@ public class StartController {
                   /* Weight Correction
                      weight sensor often gets weird values.. */
 
-                    if(initialCount < 2) // first value is discarded
+                    if(initialCount < 1) // first value is discarded
                         initialCount++;
                     else {
                         if(weight - previous < -30) {
@@ -59,14 +55,13 @@ public class StartController {
                             detected = 0;
                         }
 
-                        if (detected == 2) {   // detected 3 times
+                        if (detected == 1) {   // detected 2 times
                             empty = false;
                         }
                         previous = weight;
                     }
                 }
 
-                wApp.getConn().closeConnection();
                 // run later in the main thread
                 Platform.runLater(() -> {
                     try {
@@ -99,8 +94,7 @@ public class StartController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("playLayout.fxml"));
         Parent root = fxmlLoader.load();
         PlayController controller = fxmlLoader.getController();
-        controller.getWeight(port);
-        Thread.sleep(1000); // weight for the weight sensor to be zero
+        controller.getWeight(wApp);
         controller.setFullScreen(scene);
         controller.setItem(n);
         controller.playMemory();
