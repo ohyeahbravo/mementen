@@ -1,5 +1,7 @@
 # Mementen
 A desktop application for Mementen, a narrative memory player.
+<br>
+<img src="https://github.com/ohyeahbravo/mementen/blob/master/mementen_after.png" width="200" />
 ![after](https://github.com/ohyeahbravo/mementen/blob/master/mementen_after.png?s=200)
 
 ## What is Mementen
