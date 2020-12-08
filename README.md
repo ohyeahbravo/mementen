@@ -7,7 +7,7 @@ Mementen is a audio-visual device, designed to helps users to recall their stori
 
 ## Implementation
 This app was implemented as a desktop app, using JavaFX. Additional modules used were arduino, jSerialComm, and RXTXComm. arduino and jSerialComm together comprise the Java-Arduino Communication Library to provide the Arduino class as well as serial read and write functions. RXTX library was added to enable serial and parallel communication for Java Development Toolkit(JDK). Especially, WeightSensorApp class in arduino library was used to specify the connection and communicate with the weight sensor. The followings are the flowchart of the program and the detailed explanations on each step.
-<img src="https://github.com/ohyeahbravo/mementen/blob/master/flowchart.png" width="600" />
+<br/><img src="https://github.com/ohyeahbravo/mementen/blob/master/flowchart.png" width="700" />
 
 ### Sensor Connection
 When the app starts, it finds the port where arduino is connected. The serial port number is then used to start the WeightSensorApp class and open the connection. The thread waits for 1000 milliseconds to ensure the connection is done. The opened connection is maintained until the app is terminated. We initially designed it to be reconnected each time the app changes the scene, but later found it to slow down the process.
