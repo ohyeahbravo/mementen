@@ -2,7 +2,7 @@
 A desktop application for Mementen, a narrative memory player.
 
 ## What is Mementen?
-![DEMO Video](https://vimeo.com/488990664)
+<a href="https://vimeo.com/488990664">DEMO Video</a> <br/>
 <img src="https://github.com/ohyeahbravo/mementen/blob/master/mementen_after.png" width="500" />
 Mementen is a audio-visual device, designed to helps users to recall their stories behind objects. It records and plays a user’s voice telling a story about an object placed on the platform. The narration is supported by visual materials related to the story being told, picked by the user. The materials may include photos, drawings, or videos. Our intention was to integrate the tangibility of a physical object with the abstractness of a story to create a tactile memory. The presented prototype does not yet have the functionality to record memories at the moment. The technique for object recognition should be improved as well as the development of an app to record and save memories. More information can be found in our <a href="https://github.com/ohyeahbravo/mementen/blob/master/documentation.pdf">project documentation</a>.
 
