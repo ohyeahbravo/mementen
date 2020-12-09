@@ -5,6 +5,9 @@ A desktop application for Mementen, a narrative memory player.
 <img src="https://github.com/ohyeahbravo/mementen/blob/master/mementen_after.png" width="500" />
 Mementen is a audio-visual device, designed to helps users to recall their stories behind objects. It records and plays a user’s voice telling a story about an object placed on the platform. The narration is supported by visual materials related to the story being told, picked by the user. The materials may include photos, drawings, or videos. Our intention was to integrate the tangibility of a physical object with the abstractness of a story to create a tactile memory. The presented prototype does not yet have the functionality to record memories at the moment. The technique for object recognition should be improved as well as the development of an app to record and save memories. More information can be found in our <a href="https://github.com/ohyeahbravo/mementen/blob/master/documentation.pdf">project documentation</a>.
 
+## Demo Video
+<iframe src="https://player.vimeo.com/video/488990664" width="640" height="564" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
 ## Implementation
 This app was implemented as a desktop app, using JavaFX. Additional modules used were arduino, jSerialComm, and RXTXComm. arduino and jSerialComm together comprise the Java-Arduino Communication Library to provide the Arduino class as well as serial read and write functions. RXTX library was added to enable serial and parallel communication for Java Development Toolkit(JDK). Especially, WeightSensorApp class in arduino library was used to specify the connection and communicate with the weight sensor. The followings are the flowchart of the program and the detailed explanations on each step.
 <br/><br/><img src="https://github.com/ohyeahbravo/mementen/blob/master/flowchart.png" width="600" /><br/>
